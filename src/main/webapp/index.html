@@ -1,0 +1,20 @@
+<html>
+  <body>
+    <h2>Add Two Numbers</h2>
+    <form onsubmit="calculateSum(); return false;">
+      Number 1: <input type="text" id="num1"><br><br>
+      Number 2: <input type="text" id="num2"><br><br>
+      <input type="submit" value="Add">
+    </form>
+    <h3 id="result"></h3>
+
+    <script>
+      function calculateSum() {
+        var a = parseInt(document.getElementById("num1").value);
+        var b = parseInt(document.getElementById("num2").value);
+        var sum = a + b;
+        document.getElementById("result").innerHTML = "Sum = " + sum;
+      }
+    </script>
+  </body>
+</html>
