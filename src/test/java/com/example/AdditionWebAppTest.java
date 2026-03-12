@@ -1,20 +1,20 @@
 package com.example;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.testng.Assert.assertEquals;
 
 public class AdditionWebAppTest {
 
     private WebDriver driver;
 
-    @Before
+    @BeforeClass
     public void setUp() {
         driver = new ChromeDriver();
         driver.get("file:///C:/addition-webapplication/src/main/webapp/index.html");
@@ -32,13 +32,13 @@ public class AdditionWebAppTest {
         addButton.click();
 
         WebElement result = driver.findElement(By.id("result"));
-        assertEquals("Sum = 12", result.getText());
+        assertEquals(result.getText(), "Sum = 12");
 
-        // Keep browser open for 10 seconds after test
+        // Keep browser open for 10 seconds
         Thread.sleep(10000);
     }
 
-    @After
+    @AfterClass
     public void tearDown() {
         if (driver != null) {
             driver.quit();
